@@ -5,7 +5,7 @@ import ()
 type Item struct {
 	Id                  int `db:"id"`                  //	int(11)	NO	PRI	0
 	MinStatus           int `db:"minstatus"`           //	smallint(5)	NO	MUL	0
-	Name                int `db:"Name"`                //	varchar(64)	NO	MUL
+	Name                int `db:"name"`                //	varchar(64)	NO	MUL
 	Aagi                int `db:"aagi"`                //	int(11)	NO		0
 	Ac                  int `db:"ac"`                  //	int(11)	NO		0
 	Accuracy            int `db:"accuracy"`            //	int(11)	NO		0
