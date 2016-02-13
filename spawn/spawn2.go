@@ -16,7 +16,7 @@ type Spawn2 struct {
 	Respawntime  int            `db:"respawntime"`  //	int(11)	NO		0
 	Variance     int            `db:"variance"`     //	int(11)	NO		0
 	Pathgrid     int            `db:"pathgrid"`     //	int(10)	NO		0
-	_condition   int            `db:"_condition"`   //	mediumint(8) unsigned	NO		0
+	Condition    int            `db:"_condition"`   //	mediumint(8) unsigned	NO		0
 	Cond_value   int            `db:"cond_value"`   //	mediumint(9)	NO		1
 	Enabled      int            `db:"enabled"`      //	tinyint(3) unsigned	NO		1
 	Animation    int            `db:"animation"`    //	tinyint(3) unsigned	NO		0

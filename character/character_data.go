@@ -24,7 +24,7 @@ type CharacterData struct {
 	Level                   int            `db:"level"`                   //	int(11) unsigned	NO		0
 	Deity                   int            `db:"deity"`                   //	int(11) unsigned	NO		0
 	Birthday                int            `db:"birthday"`                //	int(11) unsigned	NO		0
-	Last_login              int            `db:"last_login"`              //	int(11) unsigned	NO		0
+	Last_login              int64          `db:"last_login"`              //	int(11) unsigned	NO		0
 	Time_played             int            `db:"time_played"`             //	int(11) unsigned	NO		0
 	Level2                  int            `db:"level2"`                  //	tinyint(11) unsigned	NO		0
 	Anon                    int            `db:"anon"`                    //	tinyint(11) unsigned	NO		0
@@ -104,6 +104,9 @@ type CharacterData struct {
 	E_aa_effects            int            `db:"e_aa_effects"`            //	int(11) unsigned	NO		0
 	E_percent_to_aa         int            `db:"e_percent_to_aa"`         //	int(11) unsigned	NO		0
 	E_expended_aa_spent     int            `db:"e_expended_aa_spent"`     //	int(11) unsigned	NO		0
+	Aa_points_spent_old     int            `db:"aa_points_spent_old"`     //	int(11) unsigned	NO		0
+	Aa_points_old           int            `db:"aa_points_old"`           //	int(11) unsigned	NO		0
+	E_last_invsnapshot      int            `db:"e_last_invsnapshot"`      //	int(11) unsigned	NO		0
 	Build_data              sql.NullString `db:"build_data"`              //	varchar(39)	YES		NULL
 	Session                 sql.NullString `db:"session"`                 //	varchar(32)	YES		NULL
 	Session_timeout         mysql.NullTime `db:"session_timeout"`         //	timestamp	NO		CURRENT_TIMESTAMP
