@@ -3,7 +3,6 @@ package item
 import (
 	"database/sql"
 	"github.com/go-sql-driver/mysql"
-	"time"
 )
 
 type Item struct {
@@ -114,7 +113,7 @@ type Item struct {
 	Reclevel            int            `db:"reclevel"`            //	int(11)	NO		0
 	Recskill            int            `db:"recskill"`            //	int(11)	NO		0
 	Reqlevel            int            `db:"reqlevel"`            //	int(11)	NO		0
-	Sellrate            int            `db:"sellrate"`            //	float	NO		0
+	Sellrate            float64        `db:"sellrate"`            //	float	NO		0
 	Shielding           int            `db:"shielding"`           //	int(11)	NO		0
 	Size                int            `db:"size"`                //	int(11)	NO		0
 	Skillmodtype        int            `db:"skillmodtype"`        //	int(11)	NO		0
@@ -141,7 +140,7 @@ type Item struct {
 	Unk124              int            `db:"UNK124"`              //	int(11)	NO		0
 	Attuneable          int            `db:"attuneable"`          //	int(11)	NO		0
 	Nopet               int            `db:"nopet"`               //	int(11)	NO		0
-	Updated             int            `db:"updated"`             //	datetime	NO		0000-00-00 00:00:00
+	Updated             mysql.NullTime `db:"updated"`             //	datetime	NO		0000-00-00 00:00:00
 	Comment             string         `db:"comment"`             //	varchar(255)	NO
 	Unk127              int            `db:"UNK127"`              //	int(11)	NO		0
 	Pointtype           int            `db:"pointtype"`           //	int(11)	NO		0
