@@ -7,101 +7,101 @@ import (
 )
 
 type Item struct {
-	Id                  int            `db:"id"`              //	int(11)	NO	PRI	0
-	Minstatus           int            `db:"minstatus"`       //	smallint(5)	NO	MUL	0
-	Name                string         `db:"Name"`            //	varchar(64)	NO	MUL
-	Aagi                int            `db:"aagi"`            //	int(11)	NO		0
-	Ac                  int            `db:"ac"`              //	int(11)	NO		0
-	Accuracy            int            `db:"accuracy"`        //	int(11)	NO		0
-	Acha                int            `db:"acha"`            //	int(11)	NO		0
-	Adex                int            `db:"adex"`            //	int(11)	NO		0
-	Aint                int            `db:"aint"`            //	int(11)	NO		0
-	Artifactflag        int            `db:"artifactflag"`    //	tinyint(3) unsigned	NO		0
-	Asta                int            `db:"asta"`            //	int(11)	NO		0
-	Astr                int            `db:"astr"`            //	int(11)	NO		0
-	Attack              int            `db:"attack"`          //	int(11)	NO		0
-	Augrestrict         int            `db:"augrestrict"`     //	int(11)	NO		0
-	Augslot1type        int            `db:"augslot1type"`    //	tinyint(3)	NO		0
-	Augslot1visible     sql.NullInt64  `db:"augslot1visible"` //	tinyint(3)	YES		NULL
-	Augslot2type        int            `db:"augslot2type"`    //	tinyint(3)	NO		0
-	Augslot2visible     sql.NullInt64  `db:"augslot2visible"` //	tinyint(3)	YES		NULL
-	Augslot3type        int            `db:"augslot3type"`    //	tinyint(3)	NO		0
-	Augslot3visible     sql.NullInt64  `db:"augslot3visible"` //	tinyint(3)	YES		NULL
-	Augslot4type        int            `db:"augslot4type"`    //	tinyint(3)	NO		0
-	Augslot4visible     sql.NullInt64  `db:"augslot4visible"` //	tinyint(3)	YES		NULL
-	Augslot5type        int            `db:"augslot5type"`    //	tinyint(3)	NO		0
-	Augslot5visible     sql.NullInt64  `db:"augslot5visible"` //	tinyint(3)	YES		NULL
-	Augslot6type        int            `db:"augslot6type"`    //	tinyint(3)	NO		0
-	Augslot6visible     sql.NullInt64  `db:"augslot6visible"` //	tinyint(3)	YES		NULL
-	Augtype             int            `db:"augtype"`         //	int(11)	NO		0
-	Avoidance           int            `db:"avoidance"`       //	int(11)	NO		0
-	Awis                int            `db:"awis"`            //	int(11)	NO		0
-	Bagsize             int            `db:"bagsize"`         //	int(11)	NO		0
-	Bagslots            int            `db:"bagslots"`        //	int(11)	NO		0
-	Bagtype             int            `db:"bagtype"`         //	int(11)	NO		0
-	Bagwr               int            `db:"bagwr"`           //	int(11)	NO		0
-	Banedmgamt          int            `db:"banedmgamt"`      //	int(11)	NO		0
-	Banedmgraceamt      int            `db:"banedmgraceamt"`  //	int(11)	NO		0
-	Banedmgbody         int            `db:"banedmgbody"`     //	int(11)	NO		0
-	Banedmgrace         int            `db:"banedmgrace"`     //	int(11)	NO		0
-	Bardtype            int            `db:"bardtype"`        //	int(11)	NO		0
-	Bardvalue           int            `db:"bardvalue"`       //	int(11)	NO		0
-	Book                int            `db:"book"`            //	int(11)	NO		0
-	Casttime            int            `db:"casttime"`        //	int(11)	NO		0
-	Casttime_           int            `db:"casttime_"`       //	int(11)	NO		0
-	Charmfile           string         `db:"charmfile"`       //	varchar(32)	NO
-	Charmfileid         string         `db:"charmfileid"`     //	varchar(32)	NO
-	Classes             int            `db:"classes"`         //	int(11)	NO		0
-	Color               int            `db:"color"`           //	int(10) unsigned	NO		0
-	Combateffects       string         `db:"combateffects"`   //	varchar(10)	NO
-	Extradmgskill       int            `db:"extradmgskill"`   //	int(11)	NO		0
-	Extradmgamt         int            `db:"extradmgamt"`     //	int(11)	NO		0
-	Price               int            `db:"price"`           //	int(11)	NO		0
-	Cr                  int            `db:"cr"`              //	int(11)	NO		0
-	Damage              int            `db:"damage"`          //	int(11)	NO		0
-	Damageshield        int            `db:"damageshield"`    //	int(11)	NO		0
-	Deity               int            `db:"deity"`           //	int(11)	NO		0
-	Delay               int            `db:"delay"`           //	int(11)	NO		0
-	Augdistiller        int            `db:"augdistiller"`    //	int(11)	NO		0
-	Dotshielding        int            `db:"dotshielding"`    //	int(11)	NO		0
-	Dr                  int            `db:"dr"`              //	int(11)	NO		0
-	Clicktype           int            `db:"clicktype"`       //	int(11)	NO		0
-	Clicklevel2         int            `db:"clicklevel2"`     //	int(11)	NO		0
-	Elemdmgtype         int            `db:"elemdmgtype"`     //	int(11)	NO		0
-	Elemdmgamt          int            `db:"elemdmgamt"`      //	int(11)	NO		0
-	Endur               int            `db:"endur"`           //	int(11)	NO		0
-	Factionamt1         int            `db:"factionamt1"`     //	int(11)	NO		0
-	Factionamt2         int            `db:"factionamt2"`     //	int(11)	NO		0
-	Factionamt3         int            `db:"factionamt3"`     //	int(11)	NO		0
-	Factionamt4         int            `db:"factionamt4"`     //	int(11)	NO		0
-	Factionmod1         int            `db:"factionmod1"`     //	int(11)	NO		0
-	Factionmod2         int            `db:"factionmod2"`     //	int(11)	NO		0
-	Factionmod3         int            `db:"factionmod3"`     //	int(11)	NO		0
-	Factionmod4         int            `db:"factionmod4"`     //	int(11)	NO		0
-	Filename            string         `db:"filename"`        //	varchar(32)	NO
-	Focuseffect         int            `db:"focuseffect"`     //	int(11)	NO		0
-	Fr                  int            `db:"fr"`              //	int(11)	NO		0
-	Fvnodrop            int            `db:"fvnodrop"`        //	int(11)	NO		0
-	Haste               int            `db:"haste"`           //	int(11)	NO		0
-	Clicklevel          int            `db:"clicklevel"`      //	int(11)	NO		0
-	Hp                  int            `db:"hp"`              //	int(11)	NO		0
-	Regen               int            `db:"regen"`           //	int(11)	NO		0
-	Icon                int            `db:"icon"`            //	int(11)	NO		0
-	Idfile              string         `db:"idfile"`          //	varchar(30)	NO
-	Itemclass           int            `db:"itemclass"`       //	int(11)	NO		0
-	Itemtype            int            `db:"itemtype"`        //	int(11)	NO		0
-	Ldonprice           int            `db:"ldonprice"`       //	int(11)	NO		0
-	Ldontheme           int            `db:"ldontheme"`       //	int(11)	NO		0
-	Ldonsold            int            `db:"ldonsold"`        //	int(11)	NO		0
-	Light               int            `db:"light"`           //	int(11)	NO		0
-	Lore                string         `db:"lore"`            //	varchar(80)	NO	MUL
-	Loregroup           int            `db:"loregroup"`       //	int(11)	NO		0
-	Magic               int            `db:"magic"`           //	int(11)	NO		0
-	Mana                int            `db:"mana"`            //	int(11)	NO		0
-	Manaregen           int            `db:"manaregen"`       //	int(11)	NO		0
-	Enduranceregen      int            `db:"enduranceregen"`  //	int(11)	NO		0
-	Material            int            `db:"material"`        //	int(11)	NO		0
-	Herosforgemodel     int            `db:"herosforgemodel"`
+	Id                  int            `db:"id"`                  //	int(11)	NO	PRI	0
+	Minstatus           int            `db:"minstatus"`           //	smallint(5)	NO	MUL	0
+	Name                string         `db:"Name"`                //	varchar(64)	NO	MUL
+	Aagi                int            `db:"aagi"`                //	int(11)	NO		0
+	Ac                  int            `db:"ac"`                  //	int(11)	NO		0
+	Accuracy            int            `db:"accuracy"`            //	int(11)	NO		0
+	Acha                int            `db:"acha"`                //	int(11)	NO		0
+	Adex                int            `db:"adex"`                //	int(11)	NO		0
+	Aint                int            `db:"aint"`                //	int(11)	NO		0
+	Artifactflag        int            `db:"artifactflag"`        //	tinyint(3) unsigned	NO		0
+	Asta                int            `db:"asta"`                //	int(11)	NO		0
+	Astr                int            `db:"astr"`                //	int(11)	NO		0
+	Attack              int            `db:"attack"`              //	int(11)	NO		0
+	Augrestrict         int            `db:"augrestrict"`         //	int(11)	NO		0
+	Augslot1type        int            `db:"augslot1type"`        //	tinyint(3)	NO		0
+	Augslot1visible     sql.NullInt64  `db:"augslot1visible"`     //	tinyint(3)	YES		NULL
+	Augslot2type        int            `db:"augslot2type"`        //	tinyint(3)	NO		0
+	Augslot2visible     sql.NullInt64  `db:"augslot2visible"`     //	tinyint(3)	YES		NULL
+	Augslot3type        int            `db:"augslot3type"`        //	tinyint(3)	NO		0
+	Augslot3visible     sql.NullInt64  `db:"augslot3visible"`     //	tinyint(3)	YES		NULL
+	Augslot4type        int            `db:"augslot4type"`        //	tinyint(3)	NO		0
+	Augslot4visible     sql.NullInt64  `db:"augslot4visible"`     //	tinyint(3)	YES		NULL
+	Augslot5type        int            `db:"augslot5type"`        //	tinyint(3)	NO		0
+	Augslot5visible     sql.NullInt64  `db:"augslot5visible"`     //	tinyint(3)	YES		NULL
+	Augslot6type        int            `db:"augslot6type"`        //	tinyint(3)	NO		0
+	Augslot6visible     sql.NullInt64  `db:"augslot6visible"`     //	tinyint(3)	NO		0
+	Augtype             int            `db:"augtype"`             //	int(11)	NO		0
+	Avoidance           int            `db:"avoidance"`           //	int(11)	NO		0
+	Awis                int            `db:"awis"`                //	int(11)	NO		0
+	Bagsize             int            `db:"bagsize"`             //	int(11)	NO		0
+	Bagslots            int            `db:"bagslots"`            //	int(11)	NO		0
+	Bagtype             int            `db:"bagtype"`             //	int(11)	NO		0
+	Bagwr               int            `db:"bagwr"`               //	int(11)	NO		0
+	Banedmgamt          int            `db:"banedmgamt"`          //	int(11)	NO		0
+	Banedmgraceamt      int            `db:"banedmgraceamt"`      //	int(11)	NO		0
+	Banedmgbody         int            `db:"banedmgbody"`         //	int(11)	NO		0
+	Banedmgrace         int            `db:"banedmgrace"`         //	int(11)	NO		0
+	Bardtype            int            `db:"bardtype"`            //	int(11)	NO		0
+	Bardvalue           int            `db:"bardvalue"`           //	int(11)	NO		0
+	Book                int            `db:"book"`                //	int(11)	NO		0
+	Casttime            int            `db:"casttime"`            //	int(11)	NO		0
+	Casttime_           int            `db:"casttime_"`           //	int(11)	NO		0
+	Charmfile           string         `db:"charmfile"`           //	varchar(32)	NO
+	Charmfileid         string         `db:"charmfileid"`         //	varchar(32)	NO
+	Classes             int            `db:"classes"`             //	int(11)	NO		0
+	Color               int            `db:"color"`               //	int(10) unsigned	NO		0
+	Combateffects       string         `db:"combateffects"`       //	varchar(10)	NO
+	Extradmgskill       int            `db:"extradmgskill"`       //	int(11)	NO		0
+	Extradmgamt         int            `db:"extradmgamt"`         //	int(11)	NO		0
+	Price               int            `db:"price"`               //	int(11)	NO		0
+	Cr                  int            `db:"cr"`                  //	int(11)	NO		0
+	Damage              int            `db:"damage"`              //	int(11)	NO		0
+	Damageshield        int            `db:"damageshield"`        //	int(11)	NO		0
+	Deity               int            `db:"deity"`               //	int(11)	NO		0
+	Delay               int            `db:"delay"`               //	int(11)	NO		0
+	Augdistiller        int            `db:"augdistiller"`        //	int(11)	NO		0
+	Dotshielding        int            `db:"dotshielding"`        //	int(11)	NO		0
+	Dr                  int            `db:"dr"`                  //	int(11)	NO		0
+	Clicktype           int            `db:"clicktype"`           //	int(11)	NO		0
+	Clicklevel2         int            `db:"clicklevel2"`         //	int(11)	NO		0
+	Elemdmgtype         int            `db:"elemdmgtype"`         //	int(11)	NO		0
+	Elemdmgamt          int            `db:"elemdmgamt"`          //	int(11)	NO		0
+	Endur               int            `db:"endur"`               //	int(11)	NO		0
+	Factionamt1         int            `db:"factionamt1"`         //	int(11)	NO		0
+	Factionamt2         int            `db:"factionamt2"`         //	int(11)	NO		0
+	Factionamt3         int            `db:"factionamt3"`         //	int(11)	NO		0
+	Factionamt4         int            `db:"factionamt4"`         //	int(11)	NO		0
+	Factionmod1         int            `db:"factionmod1"`         //	int(11)	NO		0
+	Factionmod2         int            `db:"factionmod2"`         //	int(11)	NO		0
+	Factionmod3         int            `db:"factionmod3"`         //	int(11)	NO		0
+	Factionmod4         int            `db:"factionmod4"`         //	int(11)	NO		0
+	Filename            string         `db:"filename"`            //	varchar(32)	NO
+	Focuseffect         int            `db:"focuseffect"`         //	int(11)	NO		0
+	Fr                  int            `db:"fr"`                  //	int(11)	NO		0
+	Fvnodrop            int            `db:"fvnodrop"`            //	int(11)	NO		0
+	Haste               int            `db:"haste"`               //	int(11)	NO		0
+	Clicklevel          int            `db:"clicklevel"`          //	int(11)	NO		0
+	Hp                  int            `db:"hp"`                  //	int(11)	NO		0
+	Regen               int            `db:"regen"`               //	int(11)	NO		0
+	Icon                int            `db:"icon"`                //	int(11)	NO		0
+	Idfile              string         `db:"idfile"`              //	varchar(30)	NO
+	Itemclass           int            `db:"itemclass"`           //	int(11)	NO		0
+	Itemtype            int            `db:"itemtype"`            //	int(11)	NO		0
+	Ldonprice           int            `db:"ldonprice"`           //	int(11)	NO		0
+	Ldontheme           int            `db:"ldontheme"`           //	int(11)	NO		0
+	Ldonsold            int            `db:"ldonsold"`            //	int(11)	NO		0
+	Light               int            `db:"light"`               //	int(11)	NO		0
+	Lore                string         `db:"lore"`                //	varchar(80)	NO	MUL
+	Loregroup           int            `db:"loregroup"`           //	int(11)	NO		0
+	Magic               int            `db:"magic"`               //	int(11)	NO		0
+	Mana                int            `db:"mana"`                //	int(11)	NO		0
+	Manaregen           int            `db:"manaregen"`           //	int(11)	NO		0
+	Enduranceregen      int            `db:"enduranceregen"`      //	int(11)	NO		0
+	Material            int            `db:"material"`            //	int(11)	NO		0
+	Herosforgemodel     int            `db:"herosforgemodel"`     //	int(11)	NO		0
 	Maxcharges          int            `db:"maxcharges"`          //	int(11)	NO		0
 	Mr                  int            `db:"mr"`                  //	int(11)	NO		0
 	Nodrop              int            `db:"nodrop"`              //	int(11)	NO		0
@@ -114,7 +114,7 @@ type Item struct {
 	Reclevel            int            `db:"reclevel"`            //	int(11)	NO		0
 	Recskill            int            `db:"recskill"`            //	int(11)	NO		0
 	Reqlevel            int            `db:"reqlevel"`            //	int(11)	NO		0
-	Sellrate            float32        `db:"sellrate"`            //	float	NO		0
+	Sellrate            int            `db:"sellrate"`            //	float	NO		0
 	Shielding           int            `db:"shielding"`           //	int(11)	NO		0
 	Size                int            `db:"size"`                //	int(11)	NO		0
 	Skillmodtype        int            `db:"skillmodtype"`        //	int(11)	NO		0
@@ -141,7 +141,7 @@ type Item struct {
 	Unk124              int            `db:"UNK124"`              //	int(11)	NO		0
 	Attuneable          int            `db:"attuneable"`          //	int(11)	NO		0
 	Nopet               int            `db:"nopet"`               //	int(11)	NO		0
-	Updated             time.Time      `db:"updated"`             //	datetime	NO		0000-00-00 00:00:00
+	Updated             int            `db:"updated"`             //	datetime	NO		0000-00-00 00:00:00
 	Comment             string         `db:"comment"`             //	varchar(255)	NO
 	Unk127              int            `db:"UNK127"`              //	int(11)	NO		0
 	Pointtype           int            `db:"pointtype"`           //	int(11)	NO		0
@@ -179,7 +179,7 @@ type Item struct {
 	Lorefile            string         `db:"lorefile"`            //	varchar(32)	NO
 	Unk014              int            `db:"UNK014"`              //	int(11)	NO		0
 	Svcorruption        int            `db:"svcorruption"`        //	int(11)	NO		0
-	Unk038              int            `db:"UNK038"`              //	int(11)	NO		0
+	Skillmodmax         int            `db:"skillmodmax"`         //	int(11)	NO		0
 	Unk060              int            `db:"UNK060"`              //	int(11)	NO		0
 	Augslot1unk2        int            `db:"augslot1unk2"`        //	int(11)	NO		0
 	Augslot2unk2        int            `db:"augslot2unk2"`        //	int(11)	NO		0
@@ -223,26 +223,29 @@ type Item struct {
 	Scrollunk7          int            `db:"scrollunk7"`          //	int(11)	NO		0
 	Unk193              int            `db:"UNK193"`              //	int(11)	NO		0
 	Purity              int            `db:"purity"`              //	int(11)	NO		0
+	Evoitem             int            `db:"evoitem"`             //	int(11)	NO		0
+	Evoid               int            `db:"evoid"`               //	int(11)	NO		0
 	Evolvinglevel       int            `db:"evolvinglevel"`       //	int(11)	NO		0
+	Evomax              int            `db:"evomax"`              //	int(11)	NO		0
 	Clickname           string         `db:"clickname"`           //	varchar(64)	NO
 	Procname            string         `db:"procname"`            //	varchar(64)	NO
 	Wornname            string         `db:"wornname"`            //	varchar(64)	NO
 	Focusname           string         `db:"focusname"`           //	varchar(64)	NO
 	Scrollname          string         `db:"scrollname"`          //	varchar(64)	NO
 	Dsmitigation        int            `db:"dsmitigation"`        //	smallint(6)	NO		0
-	Heroicstr           int            `db:"heroic_str"`          //	smallint(6)	NO		0
-	Heroicint           int            `db:"heroic_int"`          //	smallint(6)	NO		0
-	Heroicwis           int            `db:"heroic_wis"`          //	smallint(6)	NO		0
-	Heroicagi           int            `db:"heroic_agi"`          //	smallint(6)	NO		0
-	Heroicdex           int            `db:"heroic_dex"`          //	smallint(6)	NO		0
-	Heroicsta           int            `db:"heroic_sta"`          //	smallint(6)	NO		0
-	Heroiccha           int            `db:"heroic_cha"`          //	smallint(6)	NO		0
-	Heroicpr            int            `db:"heroic_pr"`           //	smallint(6)	NO		0
-	Heroicdr            int            `db:"heroic_dr"`           //	smallint(6)	NO		0
-	Heroicfr            int            `db:"heroic_fr"`           //	smallint(6)	NO		0
-	Heroiccr            int            `db:"heroic_cr"`           //	smallint(6)	NO		0
-	Heroicmr            int            `db:"heroic_mr"`           //	smallint(6)	NO		0
-	Heroicsvcorrup      int            `db:"heroic_svcorrup"`     //	smallint(6)	NO		0
+	Heroic_str          int            `db:"heroic_str"`          //	smallint(6)	NO		0
+	Heroic_int          int            `db:"heroic_int"`          //	smallint(6)	NO		0
+	Heroic_wis          int            `db:"heroic_wis"`          //	smallint(6)	NO		0
+	Heroic_agi          int            `db:"heroic_agi"`          //	smallint(6)	NO		0
+	Heroic_dex          int            `db:"heroic_dex"`          //	smallint(6)	NO		0
+	Heroic_sta          int            `db:"heroic_sta"`          //	smallint(6)	NO		0
+	Heroic_cha          int            `db:"heroic_cha"`          //	smallint(6)	NO		0
+	Heroic_pr           int            `db:"heroic_pr"`           //	smallint(6)	NO		0
+	Heroic_dr           int            `db:"heroic_dr"`           //	smallint(6)	NO		0
+	Heroic_fr           int            `db:"heroic_fr"`           //	smallint(6)	NO		0
+	Heroic_cr           int            `db:"heroic_cr"`           //	smallint(6)	NO		0
+	Heroic_mr           int            `db:"heroic_mr"`           //	smallint(6)	NO		0
+	Heroic_svcorrup     int            `db:"heroic_svcorrup"`     //	smallint(6)	NO		0
 	Healamt             int            `db:"healamt"`             //	smallint(6)	NO		0
 	Spelldmg            int            `db:"spelldmg"`            //	smallint(6)	NO		0
 	Clairvoyance        int            `db:"clairvoyance"`        //	smallint(6)	NO		0
@@ -288,5 +291,5 @@ type Item struct {
 	Unk239              int            `db:"UNK239"`              //	int(11)	NO		0
 	Unk240              int            `db:"UNK240"`              //	int(11)	NO		0
 	Unk241              int            `db:"UNK241"`              //	int(11)	NO		0
-	epicitem            int            `db:"epicitem"`            //	int(11)	NO		0
+	Epicitem            int            `db:"epicitem"`            //	int(11)	NO		0
 }
