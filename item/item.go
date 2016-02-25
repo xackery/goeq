@@ -127,6 +127,7 @@ type Item struct {
 	Tradeskills         int            `db:"tradeskills"`         //	int(11)	NO		0
 	Favor               int            `db:"favor"`               //	int(11)	NO		0
 	Weight              int            `db:"weight"`              //	int(11)	NO		0
+	Unk038              int            `db:"UNK038"`              //	int(11)	NO		0
 	Unk012              int            `db:"UNK012"`              //	int(11)	NO		0
 	Unk013              int            `db:"UNK013"`              //	int(11)	NO		0
 	Benefitflag         int            `db:"benefitflag"`         //	int(11)	NO		0
@@ -270,6 +271,7 @@ type Item struct {
 	Unk219              int            `db:"UNK219"`              //	int(11)	NO		0
 	Unk220              int            `db:"UNK220"`              //	int(11)	NO		0
 	Unk221              int            `db:"UNK221"`              //	int(11)	NO		0
+	Unk222              int            `db:"UNK222"`              //	int(11)	NO		0
 	Heirloom            int            `db:"heirloom"`            //	int(11)	NO		0
 	Unk223              int            `db:"UNK223"`              //	int(11)	NO		0
 	Unk224              int            `db:"UNK224"`              //	int(11)	NO		0
@@ -283,6 +285,7 @@ type Item struct {
 	Unk232              int            `db:"UNK232"`              //	int(11)	NO		0
 	Unk233              int            `db:"UNK233"`              //	int(11)	NO		0
 	Unk234              int            `db:"UNK234"`              //	int(11)	NO		0
+	Unk235              int            `db:"UNK235"`              //	int(11)	NO		0
 	Placeable           int            `db:"placeable"`           //	int(11)	NO		0
 	Unk236              int            `db:"UNK236"`              //	int(11)	NO		0
 	Unk237              int            `db:"UNK237"`              //	int(11)	NO		0
@@ -290,5 +293,6 @@ type Item struct {
 	Unk239              int            `db:"UNK239"`              //	int(11)	NO		0
 	Unk240              int            `db:"UNK240"`              //	int(11)	NO		0
 	Unk241              int            `db:"UNK241"`              //	int(11)	NO		0
+	Unk242              int            `db:"UNK242"`              //	int(11)	NO		0
 	Epicitem            int            `db:"epicitem"`            //	int(11)	NO		0
 }
