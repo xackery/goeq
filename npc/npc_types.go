@@ -76,7 +76,7 @@ type NpcTypes struct {
 	Sta                   int            `db:"STA"`                   //	mediumint(8) unsigned	NO		75
 	Dex                   int            `db:"DEX"`                   //	mediumint(8) unsigned	NO		75
 	Agi                   int            `db:"AGI"`                   //	mediumint(8) unsigned	NO		75
-	_int                  int            `db:"_INT"`                  //	mediumint(8) unsigned	NO		80
+	Int                   int            `db:"_INT"`                  //	mediumint(8) unsigned	NO		80
 	Wis                   int            `db:"WIS"`                   //	mediumint(8) unsigned	NO		75
 	Cha                   int            `db:"CHA"`                   //	mediumint(8) unsigned	NO		75
 	See_hide              int            `db:"see_hide"`              //	tinyint(4)	NO		0
@@ -108,6 +108,17 @@ type NpcTypes struct {
 	Light                 int            `db:"light"`                 //	tinyint(2)	NO		0
 	Walkspeed             int            `db:"walkspeed"`             //	tinyint(2)	NO		0
 	Peqid                 int            `db:"peqid"`                 //	int(11)	NO		0
-	Unique_               int            `db:"unique_"`               //	tinyint(2)	NO		0
+	Unique                int            `db:"unique_"`               //	tinyint(2)	NO		0
 	Fixed                 int            `db:"fixed"`                 //	tinyint(2)	NO		0
+}
+
+//Convert Takp to peq
+func (n *NpcTypes) DecodeFromTakp(npc *NpcTypes) {
+	//heroesforgemodel default ok
+	//attack_speed default ok
+	//chesttexture takp default ok
+	//combat_hp_regen takp can be ignored, default ok
+	//combat_mana_regen takp
+	//aggro_pc takp
+	//ignore_distance takp
 }
