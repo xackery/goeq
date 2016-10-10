@@ -2,6 +2,7 @@ package npc
 
 import (
 	"database/sql"
+	taknpc "github.com/xackery/goeq/takp/npc"
 )
 
 type NpcTypes struct {
@@ -17,7 +18,7 @@ type NpcTypes struct {
 	Gender                int            `db:"gender"`                //	tinyint(2) unsigned	NO		0
 	Texture               int            `db:"texture"`               //	tinyint(2) unsigned	NO		0
 	Helmtexture           int            `db:"helmtexture"`           //	tinyint(2) unsigned	NO		0
-	Size                  int            `db:"size"`                  //	float	NO		0
+	Size                  float64        `db:"size"`                  //	float	NO		0
 	Hp_regen_rate         int            `db:"hp_regen_rate"`         //	int(11) unsigned	NO		0
 	Mana_regen_rate       int            `db:"mana_regen_rate"`       //	int(11) unsigned	NO		0
 	Loottable_id          int            `db:"loottable_id"`          //	int(11) unsigned	NO		0
@@ -31,7 +32,7 @@ type NpcTypes struct {
 	Mindmg                int            `db:"mindmg"`                //	int(10) unsigned	NO		0
 	Maxdmg                int            `db:"maxdmg"`                //	int(10) unsigned	NO		0
 	Attack_count          int            `db:"attack_count"`          //	smallint(6)	NO		-1
-	Npcspecialattks       int            `db:"npcspecialattks"`       //	varchar(36)	NO
+	Npcspecialattks       sql.NullString `db:"npcspecialattks"`       //	varchar(36)	NO
 	Special_abilities     sql.NullString `db:"special_abilities"`     //	text	NO		NULL
 	Aggroradius           int            `db:"aggroradius"`           //	int(10) unsigned	NO		0
 	Assistradius          int            `db:"assistradius"`          //	int(10) unsigned	NO		0
@@ -49,13 +50,13 @@ type NpcTypes struct {
 	Armortint_red         int            `db:"armortint_red"`         //	tinyint(3) unsigned	NO		0
 	Armortint_green       int            `db:"armortint_green"`       //	tinyint(3) unsigned	NO		0
 	Armortint_blue        int            `db:"armortint_blue"`        //	tinyint(3) unsigned	NO		0
-	D_meele_texture1      int            `db:"d_meele_texture1"`      //	int(10) unsigned	NO		0
-	D_meele_texture2      int            `db:"d_meele_texture2"`      //	int(10) unsigned	NO		0
-	Ammo_idfile           int            `db:"ammo_idfile"`           //	varchar(30)	NO		IT10
+	D_melee_texture1      int            `db:"d_melee_texture1"`      //	int(10) unsigned	NO		0
+	D_melee_texture2      int            `db:"d_melee_texture2"`      //	int(10) unsigned	NO		0
+	Ammo_idfile           sql.NullString `db:"ammo_idfile"`           //	varchar(30)	NO		IT10
 	Prim_melee_type       int            `db:"prim_melee_type"`       //	tinyint(4) unsigned	NO		28
 	Sec_melee_type        int            `db:"sec_melee_type"`        //	tinyint(4) unsigned	NO		28
 	Ranged_type           int            `db:"ranged_type"`           //	tinyint(4) unsigned	NO		7
-	Runspeed              int            `db:"runspeed"`              //	float	NO		0
+	Runspeed              float64        `db:"runspeed"`              //	float	NO		0
 	Mr                    int            `db:"MR"`                    //	smallint(5)	NO		0
 	Cr                    int            `db:"CR"`                    //	smallint(5)	NO		0
 	Dr                    int            `db:"DR"`                    //	smallint(5)	NO		0
@@ -69,7 +70,7 @@ type NpcTypes struct {
 	Ac                    int            `db:"AC"`                    //	smallint(5)	NO		0
 	Npc_aggro             int            `db:"npc_aggro"`             //	tinyint(4)	NO		0
 	Spawn_limit           int            `db:"spawn_limit"`           //	tinyint(4)	NO		0
-	Attack_speed          int            `db:"attack_speed"`          //	float	NO		0
+	Attack_speed          float64        `db:"attack_speed"`          //	float	NO		0
 	Attack_delay          int            `db:"attack_delay"`          //	tinyint(3) unsigned	NO		30
 	Findable              int            `db:"findable"`              //	tinyint(4)	NO		0
 	Str                   int            `db:"STR"`                   //	mediumint(8) unsigned	NO		75
@@ -96,8 +97,8 @@ type NpcTypes struct {
 	Underwater            int            `db:"underwater"`            //	tinyint(3) unsigned	NO		0
 	Isquest               int            `db:"isquest"`               //	tinyint(3)	NO		0
 	Emoteid               int            `db:"emoteid"`               //	int(10) unsigned	NO		0
-	Spellscale            int            `db:"spellscale"`            //	float	NO		100
-	Healscale             int            `db:"healscale"`             //	float	NO		100
+	Spellscale            float64        `db:"spellscale"`            //	float	NO		100
+	Healscale             float64        `db:"healscale"`             //	float	NO		100
 	No_target_hotkey      int            `db:"no_target_hotkey"`      //	tinyint(1) unsigned	NO		0
 	Raid_target           int            `db:"raid_target"`           //	tinyint(1) unsigned	NO		0
 	Armtexture            int            `db:"armtexture"`            //	tinyint(2)	NO		0
@@ -113,7 +114,7 @@ type NpcTypes struct {
 }
 
 //Convert Takp to peq
-func (n *NpcTypes) DecodeFromTakp(npc *NpcTypes) {
+func (n *NpcTypes) DecodeFromTakp(tnpc *taknpc.NpcTypes) (err error) {
 	//heroesforgemodel default ok
 	//attack_speed default ok
 	//chesttexture takp default ok
@@ -121,4 +122,110 @@ func (n *NpcTypes) DecodeFromTakp(npc *NpcTypes) {
 	//combat_mana_regen takp
 	//aggro_pc takp
 	//ignore_distance takp
+	n.Id.Scan(tnpc.Id)
+	n.Name.Scan(tnpc.Name)
+	n.Lastname = tnpc.Lastname
+	n.Level = tnpc.Level
+	n.Race = tnpc.Race
+	n.Class = tnpc.Class
+	n.Bodytype.Scan(tnpc.Bodytype)
+	n.Hp = tnpc.Hp
+	n.Mana = tnpc.Mana
+	n.Gender = tnpc.Gender
+	n.Texture = tnpc.Texture
+	n.Helmtexture = tnpc.Helmtexture
+	n.Size = tnpc.Size
+	n.Hp_regen_rate = tnpc.Hp_regen_rate
+	n.Mana_regen_rate = tnpc.Mana_regen_rate
+	n.Loottable_id = tnpc.Loottable_id
+	n.Merchant_id = tnpc.Merchant_id
+	n.Alt_currency_id = tnpc.Alt_currency_id
+	n.Npc_spells_id = tnpc.Npc_spells_id
+	n.Npc_spells_effects_id = tnpc.Npc_spells_effects_id
+	n.Npc_faction_id = tnpc.Npc_faction_id
+	n.Adventure_template_id = tnpc.Adventure_template_id
+	n.Trap_template = tnpc.Trap_template
+	n.Mindmg = tnpc.Mindmg
+	n.Maxdmg = tnpc.Maxdmg
+	n.Attack_count = tnpc.Attack_count
+	n.Npcspecialattks.Scan(tnpc.Npcspecialattks)
+	n.Special_abilities.Scan(tnpc.Special_abilities)
+	n.Aggroradius = tnpc.Aggroradius
+	n.Assistradius = tnpc.Assistradius
+	n.Face = tnpc.Face
+	n.Luclin_hairstyle = tnpc.Luclin_hairstyle
+	n.Luclin_haircolor = tnpc.Luclin_haircolor
+	n.Luclin_eyecolor = tnpc.Luclin_eyecolor
+	n.Luclin_eyecolor2 = tnpc.Luclin_eyecolor2
+	n.Luclin_beardcolor = tnpc.Luclin_beardcolor
+	n.Luclin_beard = tnpc.Luclin_beard
+	n.Drakkin_heritage = tnpc.Drakkin_heritage
+	n.Drakkin_tattoo = tnpc.Drakkin_tattoo
+	n.Drakkin_details = tnpc.Drakkin_details
+	n.Armortint_id = tnpc.Armortint_id
+	n.Armortint_red = tnpc.Armortint_red
+	n.Armortint_green = tnpc.Armortint_green
+	n.Armortint_blue = tnpc.Armortint_blue
+	n.D_melee_texture1 = tnpc.D_melee_texture1
+	n.D_melee_texture2 = tnpc.D_melee_texture2
+	n.Ammo_idfile.Scan(tnpc.Ammo_idfile)
+	n.Prim_melee_type = tnpc.Prim_melee_type
+	n.Sec_melee_type = tnpc.Sec_melee_type
+	n.Ranged_type = tnpc.Ranged_type
+	n.Runspeed = tnpc.Runspeed
+	n.Mr = tnpc.Mr
+	n.Cr = tnpc.Cr
+	n.Dr = tnpc.Dr
+	n.Fr = tnpc.Fr
+	n.Pr = tnpc.Pr
+	n.Corrup = tnpc.Corrup
+	n.Phr = tnpc.Phr
+	n.See_invis = tnpc.See_invis
+	n.See_invis_undead = tnpc.See_invis_undead
+	n.Qglobal = tnpc.Qglobal
+	n.Ac = tnpc.Ac
+	n.Npc_aggro = tnpc.Npc_aggro
+	n.Spawn_limit = tnpc.Spawn_limit
+	//n.Attack_speed = tnpc.Attack_speed
+	n.Attack_delay = tnpc.Attack_delay
+	n.Findable = tnpc.Findable
+	n.Str = tnpc.Str
+	n.Sta = tnpc.Sta
+	n.Dex = tnpc.Dex
+	n.Agi = tnpc.Agi
+	n.Int = tnpc.Int
+	n.Wis = tnpc.Wis
+	n.Cha = tnpc.Cha
+	n.See_hide = tnpc.See_hide
+	n.See_improved_hide = tnpc.See_improved_hide
+	n.Trackable = tnpc.Trackable
+	n.Isbot = tnpc.Isbot
+	n.Exclude = tnpc.Exclude
+	n.Atk = tnpc.Atk
+	n.Accuracy = tnpc.Accuracy
+	n.Avoidance = tnpc.Avoidance
+	n.Slow_mitigation = tnpc.Slow_mitigation
+	n.Version = tnpc.Version
+	n.Maxlevel = tnpc.Maxlevel
+	n.Scalerate = tnpc.Scalerate
+	n.Private_corpse = tnpc.Private_corpse
+	n.Unique_spawn_by_name = tnpc.Unique_spawn_by_name
+	n.Underwater = tnpc.Underwater
+	n.Isquest = tnpc.Isquest
+	n.Emoteid = tnpc.Emoteid
+	n.Spellscale = tnpc.Spellscale
+	n.Healscale = tnpc.Healscale
+	n.No_target_hotkey = tnpc.No_target_hotkey
+	n.Raid_target = tnpc.Raid_target
+	n.Armtexture = tnpc.Armtexture
+	n.Bracertexture = tnpc.Bracertexture
+	n.Handtexture = tnpc.Handtexture
+	n.Legtexture = tnpc.Legtexture
+	n.Feettexture = tnpc.Feettexture
+	n.Light = tnpc.Light
+	//n.Walkspeed = tnpc.Walkspeed
+	n.Peqid = tnpc.Peqid
+	n.Unique = tnpc.Unique
+	n.Fixed = tnpc.Fixed
+	return
 }
