@@ -7,12 +7,12 @@ import (
 
 type NpcTypes struct {
 	Id                    sql.NullInt64  `db:"id"`                    //	int(11)	NO	PRI	NULL	auto_increment
-	Name                  sql.NullString `db:"name"`                  //	text	NO		NULL
+	Name                  string         `db:"name"`                  //	text	NO		NULL
 	Lastname              sql.NullString `db:"lastname"`              //	varchar(32)	YES		NULL
 	Level                 int            `db:"level"`                 //	tinyint(2) unsigned	NO		0
 	Race                  int            `db:"race"`                  //	smallint(5) unsigned	NO		0
 	Class                 int            `db:"class"`                 //	tinyint(2) unsigned	NO		0
-	Bodytype              sql.NullInt64  `db:"bodytype"`              //	int(11)	YES		NULL
+	Bodytype              int            `db:"bodytype"`              //	int(11)	YES		NULL
 	Hp                    int            `db:"hp"`                    //	int(11)	NO		0
 	Mana                  int            `db:"mana"`                  //	int(11)	NO		0
 	Gender                int            `db:"gender"`                //	tinyint(2) unsigned	NO		0
@@ -32,7 +32,7 @@ type NpcTypes struct {
 	Mindmg                int            `db:"mindmg"`                //	int(10) unsigned	NO		0
 	Maxdmg                int            `db:"maxdmg"`                //	int(10) unsigned	NO		0
 	Attack_count          int            `db:"attack_count"`          //	smallint(6)	NO		-1
-	Npcspecialattks       sql.NullString `db:"npcspecialattks"`       //	varchar(36)	NO
+	Npcspecialattks       string         `db:"npcspecialattks"`       //	varchar(36)	NO
 	Special_abilities     sql.NullString `db:"special_abilities"`     //	text	NO		NULL
 	Aggroradius           int            `db:"aggroradius"`           //	int(10) unsigned	NO		0
 	Assistradius          int            `db:"assistradius"`          //	int(10) unsigned	NO		0
@@ -52,7 +52,7 @@ type NpcTypes struct {
 	Armortint_blue        int            `db:"armortint_blue"`        //	tinyint(3) unsigned	NO		0
 	D_melee_texture1      int            `db:"d_melee_texture1"`      //	int(10) unsigned	NO		0
 	D_melee_texture2      int            `db:"d_melee_texture2"`      //	int(10) unsigned	NO		0
-	Ammo_idfile           sql.NullString `db:"ammo_idfile"`           //	varchar(30)	NO		IT10
+	Ammo_idfile           string         `db:"ammo_idfile"`           //	varchar(30)	NO		IT10
 	Prim_melee_type       int            `db:"prim_melee_type"`       //	tinyint(4) unsigned	NO		28
 	Sec_melee_type        int            `db:"sec_melee_type"`        //	tinyint(4) unsigned	NO		28
 	Ranged_type           int            `db:"ranged_type"`           //	tinyint(4) unsigned	NO		7
@@ -123,12 +123,12 @@ func (n *NpcTypes) DecodeFromTakp(tnpc *taknpc.NpcTypes) (err error) {
 	//aggro_pc takp
 	//ignore_distance takp
 	n.Id.Scan(tnpc.Id)
-	n.Name.Scan(tnpc.Name)
+	n.Name = tnpc.Name
 	n.Lastname = tnpc.Lastname
 	n.Level = tnpc.Level
 	n.Race = tnpc.Race
 	n.Class = tnpc.Class
-	n.Bodytype.Scan(tnpc.Bodytype)
+	n.Bodytype = tnpc.Bodytype
 	n.Hp = tnpc.Hp
 	n.Mana = tnpc.Mana
 	n.Gender = tnpc.Gender
@@ -148,7 +148,7 @@ func (n *NpcTypes) DecodeFromTakp(tnpc *taknpc.NpcTypes) (err error) {
 	n.Mindmg = tnpc.Mindmg
 	n.Maxdmg = tnpc.Maxdmg
 	n.Attack_count = tnpc.Attack_count
-	n.Npcspecialattks.Scan(tnpc.Npcspecialattks)
+	n.Npcspecialattks = tnpc.Npcspecialattks
 	n.Special_abilities.Scan(tnpc.Special_abilities)
 	n.Aggroradius = tnpc.Aggroradius
 	n.Assistradius = tnpc.Assistradius
@@ -168,7 +168,7 @@ func (n *NpcTypes) DecodeFromTakp(tnpc *taknpc.NpcTypes) (err error) {
 	n.Armortint_blue = tnpc.Armortint_blue
 	n.D_melee_texture1 = tnpc.D_melee_texture1
 	n.D_melee_texture2 = tnpc.D_melee_texture2
-	n.Ammo_idfile.Scan(tnpc.Ammo_idfile)
+	n.Ammo_idfile = tnpc.Ammo_idfile
 	n.Prim_melee_type = tnpc.Prim_melee_type
 	n.Sec_melee_type = tnpc.Sec_melee_type
 	n.Ranged_type = tnpc.Ranged_type

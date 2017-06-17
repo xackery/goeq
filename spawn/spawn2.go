@@ -2,6 +2,7 @@ package spawn
 
 import (
 	"database/sql"
+	takspawn "github.com/xackery/goeq/takp/spawn"
 )
 
 type Spawn2 struct {
@@ -20,4 +21,24 @@ type Spawn2 struct {
 	Cond_value   int            `db:"cond_value"`   //	mediumint(9)	NO		1
 	Enabled      int            `db:"enabled"`      //	tinyint(3) unsigned	NO		1
 	Animation    int            `db:"animation"`    //	tinyint(3) unsigned	NO		0
+}
+
+//Convert Takp to peq
+func (n *Spawn2) DecodeFromTakp(t *takspawn.Spawn2) (err error) {
+	n.Id = t.Id
+	n.Spawngroupid = t.Spawngroupid
+	n.Zone = t.Zone
+	n.Version = t.Version
+	n.X = t.X
+	n.Y = t.Y
+	n.Z = t.Z
+	n.Heading = t.Heading
+	n.Respawntime = t.Respawntime
+	n.Variance = t.Variance
+	n.Pathgrid = t.Pathgrid
+	n.Condition = t.Condition
+	n.Cond_value = t.Cond_value
+	n.Enabled = t.Enabled
+	n.Animation = t.Animation
+	return
 }
