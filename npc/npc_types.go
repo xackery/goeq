@@ -18,6 +18,7 @@ type NpcTypes struct {
 	Gender                int            `db:"gender"`                //	tinyint(2) unsigned	NO		0
 	Texture               int            `db:"texture"`               //	tinyint(2) unsigned	NO		0
 	Helmtexture           int            `db:"helmtexture"`           //	tinyint(2) unsigned	NO		0
+	Herosforgemodel       int            `db:"herosforgemodel"`       //	int(11) NOT NULL DEFAULT '0',
 	Size                  float64        `db:"size"`                  //	float	NO		0
 	Hp_regen_rate         int            `db:"hp_regen_rate"`         //	int(11) unsigned	NO		0
 	Mana_regen_rate       int            `db:"mana_regen_rate"`       //	int(11) unsigned	NO		0
