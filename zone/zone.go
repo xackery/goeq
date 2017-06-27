@@ -86,4 +86,6 @@ type Zone struct {
 	Gravity             float64        `db:"gravity"`             //	float	NO		0.4
 	Type                int            `db:"type"`                //	int(3)	NO		0
 	Skylock             int            `db:"skylock"`             //	tinyint(4)	NO		0
+	Levels              int            `db:"levels"`              //  int(4) unsigned NOT NULL DEFAULT '0' COMMENT 'Level range to hunt here',
+	Description         string         `db:"description"`         // varchar(128) DEFAULT NULL,
 }

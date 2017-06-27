@@ -295,4 +295,6 @@ type Item struct {
 	Unk241              int            `db:"UNK241"`              //	int(11)	NO		0
 	Unk242              int            `db:"UNK242"`              //	int(11)	NO		0
 	Epicitem            int            `db:"epicitem"`            //	int(11)	NO		0
+	Era                 int            `db:"era"`                 //`era` int(11) NOT NULL DEFAULT '0',
+
 }
