@@ -112,6 +112,7 @@ type NpcTypes struct {
 	Peqid                 int            `db:"peqid"`                 //	int(11)	NO		0
 	Unique                int            `db:"unique_"`               //	tinyint(2)	NO		0
 	Fixed                 int            `db:"fixed"`                 //	tinyint(2)	NO		0
+	Ignore_despawn        int            `db:"ignore_despawn"`        //    tinyint(2) NOT NULL DEFAULT '0',
 }
 
 //Convert Takp to peq

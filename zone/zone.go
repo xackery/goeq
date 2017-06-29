@@ -88,4 +88,5 @@ type Zone struct {
 	Skylock             int            `db:"skylock"`             //	tinyint(4)	NO		0
 	Levels              int            `db:"levels"`              //  int(4) unsigned NOT NULL DEFAULT '0' COMMENT 'Level range to hunt here',
 	Description         string         `db:"description"`         // varchar(128) DEFAULT NULL,
+	Sort                int            `db:"sort"`                // tinyint(1) unsigned NOT NULL DEFAULT '0',
 }
