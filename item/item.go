@@ -2,6 +2,7 @@ package item
 
 import (
 	"database/sql"
+
 	"github.com/go-sql-driver/mysql"
 )
 
@@ -268,6 +269,7 @@ type Item struct {
 	Bardname            string         `db:"bardname"`            //	varchar(64)	NO
 	Bardunk7            int            `db:"bardunk7"`            //	smallint(6)	NO		0
 	Unk214              int            `db:"UNK214"`              //	smallint(6)	NO		0
+	Subtype             int            `db:"subtype"`             //	smallint(6)	NO		0
 	Unk219              int            `db:"UNK219"`              //	int(11)	NO		0
 	Unk220              int            `db:"UNK220"`              //	int(11)	NO		0
 	Unk221              int            `db:"UNK221"`              //	int(11)	NO		0
